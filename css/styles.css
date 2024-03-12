@@ -172,6 +172,7 @@ img {
 }
 
 .sidebar__content {
+  
   position: relative;
   overflow: auto;
   padding-top: 2rem;
@@ -199,6 +200,7 @@ img {
 
 .sidebar__link {
   color: var(--text-color);
+  text-decoration: none;
   display: grid;
   grid-template-columns: repeat(2, max-content);
   align-items: center;

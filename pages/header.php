@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" style="background: black;">
     <div class="header__container container">
         <div class="header__toggle" id="header-toggle">
             <i class="ri-menu-line"></i>
