@@ -37,13 +37,14 @@
                     <?php
                     $i=0;
                     while($row = mysqli_fetch_array($query)){
+                        $file_path ="images/dongui/".$row['file'];
                         $i++;
                     ?>
                     <tr>
                         <td><?php echo $i; ?></td>
                         <td><?php echo $row['tensv']; ?></td>
                         <td><?php echo $row['tendon']; ?></td>
-                        <td> <?php echo $row['file']; ?></td>
+                        <td><a href="<?php echo $file_path; ?>" class="btn btn-primary" download>Download</a></td>
                         <td><?php echo $row['noidung']; ?></td>
                         <td><?php echo $row['ngaygui']; ?></td>
                         <td><?php echo $row['tinhtrang']; ?></td>
@@ -56,7 +57,7 @@
                         }
                         ?>
                         <?php 
-                        if($row['tinhtrang'] != 'Đã tiếp nhận đơn' && $row['tinhtrang'] != 'Đã xác nhận'){
+                        if($row['tinhtrang'] == 'Chờ xét duyệt' ){
                             ?>
                         <td> <a class="status cancelled"
                                 href="index.php?quanly=capnhapmaudon&iddg=<?php echo $row['id_dg']; ?>">Xác Nhận </a></td>

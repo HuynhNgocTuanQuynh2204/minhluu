@@ -47,7 +47,7 @@
                         <td><?php echo $row['thoigian']; ?></td>
                         <td><?php echo $row['tinhtrang']; ?></td>
                         <?php 
-                        if($row['tinhtrang'] != 'Đã tiếp nhận đơn' && $row['tinhtrang'] != 'Đã xác nhận'){
+                        if($row['tinhtrang'] == 'Chờ xét duyệt' ){
                             ?>
                         <td> <a class="status pending"
                                 href="index.php?quanly=suaform&idform=<?php echo $row['id_form']; ?>">Sửa </a></td>
@@ -57,7 +57,7 @@
                         <td> <a class="status cancelled"
                                 href="index.php?quanly=guiform&idform=<?php echo $row['id_form']; ?>">Xóa </a></td>
                                 <?php
-                                if($row['tinhtrang'] != 'Đã xác nhận' && $row['tinhtrang'] == 'Đã tiếp nhận đơn'){
+                                if($row['tinhtrang'] != 'Đã xác nhận' ){
                             ?>
                         <td> <a class="status cancelled"
                                 href="index.php?quanly=xacnhansinhvienform&idform=<?php echo $row['id_form']; ?>">Xác nhận </a></td>

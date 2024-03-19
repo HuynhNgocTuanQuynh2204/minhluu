@@ -49,7 +49,7 @@
                         <td><?php echo $row['ngaygui']; ?></td>
                         <td><?php echo $row['tinhtrang']; ?></td>
                         <?php 
-                        if($row['tinhtrang'] != 'Đã tiếp nhận đơn' && $row['tinhtrang'] != 'Đã xác nhận'){
+                       if($row['tinhtrang'] == 'Chờ xét duyệt' ){
                             ?>
                         <td> <a class="status pending"
                                 href="index.php?quanly=suadongui&iddg=<?php echo $row['id_dg']; ?>">Sửa </a></td>
@@ -59,7 +59,7 @@
                         <td> <a class="status cancelled"
                                 href="index.php?quanly=guimaudon&iddg=<?php echo $row['id_dg']; ?>">Xóa </a></td>
                                 <?php 
-                        if($row['tinhtrang'] != 'Đã xác nhận' && $row['tinhtrang'] == 'Đã tiếp nhận đơn'){
+                        if($row['tinhtrang'] != 'Đã xác nhận' ){
                             ?>
                         <td> <a class="status cancelled"
                                 href="index.php?quanly=xacnhansinhviendonxin&iddg=<?php echo $row['id_dg']; ?>">Xác nhận </a></td>

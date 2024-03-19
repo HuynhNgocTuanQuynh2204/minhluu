@@ -16,7 +16,7 @@
                     <button type="submit" class="btn btn-primary" name="guiform">Gửi</button>
                 </form>
                 <textarea name="" id="" cols="30" rows="4" style="resize: none;
-                ">Vui lòng điền đẩy đủ thông tin vào form sau khi nôpj file,nếu nộp đơn xong và quên điền form thì đơn sẽ không được giải quyết.Xin cảm ơn!</textarea>
+                ">Vui lòng điền đẩy đủ thông tin vào form sau khi nộp file,nếu nộp đơn xong và quên điền form thì đơn sẽ không được giải quyết.Xin cảm ơn!</textarea>
             </div>
 
             <div class="col-1"></div>

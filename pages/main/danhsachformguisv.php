@@ -53,7 +53,7 @@
                         }
                         ?>
                                 <?php 
-                        if($row['tinhtrang'] != 'Đã tiếp nhận đơn' && $row['tinhtrang'] != 'Đã xác nhận'){
+                        if($row['tinhtrang'] == 'Chờ xét duyệt'){
                             ?>
                         <td> <a class="status cancelled"
                                 href="index.php?quanly=xacnhanformsv&idform=<?php echo $row['id_form']; ?>">Xác nhận </a></td>
