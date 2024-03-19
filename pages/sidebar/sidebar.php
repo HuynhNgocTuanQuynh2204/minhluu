@@ -49,8 +49,20 @@
              <h3 class="sidebar__title">
                  <span>Danh sách</span>
              </h3>
+             <div class="sidebar__list">
+                 <a href="index.php?quanly=danhsachdonxinsv" class="sidebar__link">
+                     <i class="ri-history-line"></i>
+                     <span class="sidebar__link-name">Danh sách đơn xin</span>
+                     <span class="sidebar__link-floating">Danh sách đơn xin</span>
+                 </a>
+                 <a href="index.php?quanly=danhsachformguisv" class="sidebar__link">
+                     <i class="ri-history-line"></i>
+                     <span class="sidebar__link-name">Danh sách form gửi</span>
+                     <span class="sidebar__link-floating">Danh sách form gửi</span>
+                 </a>
+             </div>
              <?php
-                   }
+                   }else if(isset($_SESSION['id_sv'])){
                    ?>
              <div class="sidebar__list">
                  <a href="index.php?quanly=maudonxinsv" class="sidebar__link">
@@ -59,22 +71,28 @@
                      <span class="sidebar__link-floating">Mẫu đơn xin</span>
                  </a>
 
-                 <a href="#" class="sidebar__link">
+                 <a href="index.php?quanly=guidon" class="sidebar__link">
                      <i class="ri-time-line"></i>
-                     <span class="sidebar__link-name">Watch Later</span>
-                     <span class="sidebar__link-floating">Watch Later</span>
+                     <span class="sidebar__link-name">Gửi đơn</span>
+                     <span class="sidebar__link-floating">Gửi đơn</span>
                  </a>
 
-                 <a href="#" class="sidebar__link">
+                 <a href="index.php?quanly=danhsachdongui" class="sidebar__link">
                      <i class="ri-play-circle-line"></i>
-                     <span class="sidebar__link-name">Playlists</span>
-                     <span class="sidebar__link-floating">Playlists</span>
+                     <span class="sidebar__link-name">Lịch sử gửi đơn</span>
+                     <span class="sidebar__link-floating">Lịch sử gửi đơn</span>
                  </a>
 
-                 <a href="#" class="sidebar__link">
+                 <a href="index.php?quanly=formxacnhan" class="sidebar__link">
                      <i class="ri-heart-3-line"></i>
-                     <span class="sidebar__link-name">Liked Videos</span>
-                     <span class="sidebar__link-floating">Liked Videos</span>
+                     <span class="sidebar__link-name">Form xác nhận</span>
+                     <span class="sidebar__link-floating">Form xác nhận</span>
+                 </a>
+
+                 <a href="index.php?quanly=lichsuform" class="sidebar__link">
+                     <i class="ri-heart-3-line"></i>
+                     <span class="sidebar__link-name">Lịch sử form xác nhận</span>
+                     <span class="sidebar__link-floating">Lịch sử form xác nhận</span>
                  </a>
              </div>
 
@@ -89,12 +107,14 @@
                      <span class="sidebar__link-floating">Notifications</span>
                  </a>
 
-                 <a href="#" class="sidebar__link">
+                 <a href="index.php?quanly=doimatkhausv" class="sidebar__link">
                      <i class="ri-settings-3-line"></i>
-                     <span class="sidebar__link-name">Settings</span>
-                     <span class="sidebar__link-floating">Settings</span>
+                     <span class="sidebar__link-name">Đổi mật khẩu</span>
+                     <span class="sidebar__link-floating">Đổi mật khẩu</span>
                  </a>
-
+<?php
+                     }
+                     ?>
                  <a href="index.php?dangxuat=1" class="sidebar__link">
                      <i class="ri-logout-box-r-line"></i>
                      <span class="sidebar__link-name">Logout</span>

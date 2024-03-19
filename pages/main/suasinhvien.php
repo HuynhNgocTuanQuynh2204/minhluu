@@ -28,7 +28,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">Địa chỉ</label>
-                        <input name="diachi" type="diachi" class="form-control" value="<?php echo $row['diachi']  ?>">
+                        <input name="diachi" type="text" class="form-control" value="<?php echo $row['diachi']  ?>">
                     </div>
 
                     <div class="mb-3">

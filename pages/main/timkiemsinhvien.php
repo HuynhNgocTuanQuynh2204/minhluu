@@ -1,4 +1,14 @@
 <link rel="stylesheet" href="css/table.css">
+<?php
+if(isset($_POST['timkiem'])){
+    $tukhoa = $_POST['tukhoa'];
+} else{
+    $tukhoa = '';
+}
+              $sql = "SELECT * FROM sinhvien WHERE  tensv LIKE '%$tukhoa%' ";
+                $query = mysqli_query($mysqli,$sql);
+
+        ?>
 <main class="main container" id="main">
     <form class="form-inline" action="index.php?quanly=timkiemsinhvien" method="POST">
         <div class="input-group w-100">
@@ -9,14 +19,11 @@
             </div>
         </div>
     </form>
+    <h6 style="text-align: center;padding: 10px;">Tìm kiếm: <?php echo $_POST['tukhoa'];  ?></h6>
     <main class="table" id="customers_table">
         <section class="table__header">
             <h1>Danh sách sinh viên</h1>
         </section>
-        <?php
-              $sql = "SELECT * FROM sinhvien ORDER BY id_sv DESC";
-                $query = mysqli_query($mysqli,$sql);
-        ?>
         <section class="table__body">
             <table>
                 <thead>

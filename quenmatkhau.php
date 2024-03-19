@@ -1,6 +1,32 @@
 <!doctype html>
 <html lang="en">
+<?php
+    include("config/config.php");
+    session_start();
+  if (isset($_POST['timkiem'])){
+    $taikhoan = $_POST['taikhoan'];
 
+    $sql_nv = "SELECT * FROM sinhvien WHERE taikhoan = '".$taikhoan."' LIMIT 1 ";
+    $row_nv = mysqli_query($mysqli, $sql_nv);
+    $id = mysqli_fetch_array($row_nv);
+    $count = mysqli_num_rows($row_nv);
+
+    $sql_am = "SELECT * FROM quanly WHERE taikhoan = '".$taikhoan."' LIMIT 1 ";
+    $row_am = mysqli_query($mysqli, $sql_am);
+    $id_am = mysqli_fetch_array($row_am);
+    $count_am = mysqli_num_rows($row_am);
+
+    if ($count > 0 || $count_am > 0){
+        if ($count > 0) {
+            echo '<script>alert("Địa chỉ đúng vui lòng đặt lại mật khẩu"); window.location.href = "matkhaumoi.php?id=' . $id["id_sv"] . '";</script>';
+        }else if ($count_am > 0) {
+            echo '<script>alert("Địa chỉ đúng vui lòng đặt lại mật khẩu"); window.location.href = "matkhaumoi.php?id=' . $id_am["id_ql"] . '";</script>';
+        } 
+    }else {
+        echo '<p style="color:red;text-align:center">Không tìm thấy Email của bạn.Vui lòng kiểm tra lại!</p>';
+    }
+}
+?>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -15,7 +41,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <!-- Style -->
-    <link rel="stylesheet" href="css/dangnhap.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <title>Đăng nhập</title>
 
@@ -46,30 +72,25 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="images/z5217581775041_82d83095189ca88d20f5608433db7b84.jpg" alt="Image" class="img-fluid">
+                    <img src="images/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
                 </div>
                 <div class="col-md-6 contents">
                     <div class="row justify-content-center">
                         <div class="col-md-8">
                             <div class="mb-4">
-                                <h3>Đăng nhập hệ thống</h3>
-                                <p class="mb-4">Đăng nhập vào hệ thống bằng email và mật khẩu mà nhà trường đã cung cấp.</p>
+                                <h3>Quên mật khẩu</h3>
+                                <p class="mb-4">Vui lòng nhập đúng tài khoản dưới dạng gmail để kiểm tra.</p>
                             </div>
-                            <form action="pages/xulydangnhap.php" method="post">
+                            <form action="quenmatkhau.php" method="post">
                                 <div class="form-group first">
                                     <input type="text" class="form-control" id="taikhoan" name="taikhoan" required>
                                     <label for="taikhoan">Tài khoản</label>
                                 </div>
-                                <div class="form-group last mb-4">
-                                    <input type="password" class="form-control" id="matkhau" name="matkhau" required>
-                                    <label for="matkhau">Mật khẩu</label>
-                                </div>
-
                                 <div class="d-flex mb-5 align-items-center">
-                                    <span class="ml-auto"><a href="quenmatkhau.php" class="forgot-pass">Quên mật khẩu ?</a></span>
+                                    <span class="ml-auto"><a href="dangnhap.php" class="forgot-pass">Đăng nhập</a></span>
                                 </div>
 
-                                <input type="submit" value="Đăng nhập" name="dangnhap" class="btn btn-block btn-primary">
+                                <input type="submit" value="Tìm kiếm tài khoản" name="timkiem" class="btn btn-block btn-primary">
                             </form>
                         </div>
                     </div>

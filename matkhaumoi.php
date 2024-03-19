@@ -1,6 +1,29 @@
 <!doctype html>
 <html lang="en">
+<?php
+  include("config/config.php");
+  session_start();
+if (isset($_POST['datlaimatkhau'])) {
+    $matkhau1 = md5($_POST['password1']);
+    $matkhau2 = md5($_POST['password2']);
+    $id = $_GET['id'];
+    if ($matkhau1 == $matkhau2) {
+        $sql_dk = "UPDATE sinhvien SET matkhau = '$matkhau1' WHERE id_sv = '$id'";
+        $row_dk = mysqli_query($mysqli, $sql_dk);
 
+        $sql_am = "UPDATE quanly SET matkhau = '$matkhau1' WHERE id_ql = '$id'";
+        $row_am = mysqli_query($mysqli, $sql_am);
+
+        if ($row_dk || $row_am)  {   
+            echo '<script>alert("Mật khẩu đặt lại thành công");window.location.href = "dangnhap.php";</script>';
+        } else {  
+            echo '<script>alert("Đã xảy ra lỗi. Vui lòng thử lại!"); window.location.href =  "dangnhap.php";</script>';       
+        }
+    } else {
+        echo '<script>alert("Mật khẩu không khớp. Vui lòng thử lại!"); window.location.href = "dangnhap.php";</script>';
+    }
+}
+?>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -15,7 +38,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <!-- Style -->
-    <link rel="stylesheet" href="css/dangnhap.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <title>Đăng nhập</title>
 
@@ -46,30 +69,25 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="images/z5217581775041_82d83095189ca88d20f5608433db7b84.jpg" alt="Image" class="img-fluid">
+                    <img src="images/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
                 </div>
                 <div class="col-md-6 contents">
                     <div class="row justify-content-center">
                         <div class="col-md-8">
                             <div class="mb-4">
-                                <h3>Đăng nhập hệ thống</h3>
-                                <p class="mb-4">Đăng nhập vào hệ thống bằng email và mật khẩu mà nhà trường đã cung cấp.</p>
+                                <h3>Đặt lại mật khẩu</h3>
+                                <p class="mb-4">Mật khẩu vui lòng nhập thêm kí tự đặc biệt để đảm bảo về an toàn bảo mật.</p>
                             </div>
-                            <form action="pages/xulydangnhap.php" method="post">
+                            <form action="matkhaumoi.php" method="post">
                                 <div class="form-group first">
-                                    <input type="text" class="form-control" id="taikhoan" name="taikhoan" required>
-                                    <label for="taikhoan">Tài khoản</label>
+                                    <input type="password" class="form-control" id="taikhoan" name="password1" required>
+                                    <label for="taikhoan">Mật khẩu</label>
                                 </div>
                                 <div class="form-group last mb-4">
-                                    <input type="password" class="form-control" id="matkhau" name="matkhau" required>
-                                    <label for="matkhau">Mật khẩu</label>
+                                    <input type="password" class="form-control" id="matkhau" name="password2" required>
+                                    <label for="matkhau">Nhập lại mật khẩu</label>
                                 </div>
-
-                                <div class="d-flex mb-5 align-items-center">
-                                    <span class="ml-auto"><a href="quenmatkhau.php" class="forgot-pass">Quên mật khẩu ?</a></span>
-                                </div>
-
-                                <input type="submit" value="Đăng nhập" name="dangnhap" class="btn btn-block btn-primary">
+                                <input type="submit" value="Đặt lại mật khẩu" name="datlaimatkhau" class="btn btn-block btn-primary">
                             </form>
                         </div>
                     </div>
