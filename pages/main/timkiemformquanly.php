@@ -41,13 +41,14 @@
                     <?php
                     $i=0;
                     while($row = mysqli_fetch_array($query)){
+                        $file_path ="images/form/".$row['file'];
                         $i++;
                     ?>
                     <tr>
                         <td><?php echo $i; ?></td>
                         <td><?php echo $row['tensv']; ?></td>
                         <td><?php echo $row['tenmaudon']; ?></td>
-                        <td> <?php echo $row['file']; ?></td>
+                        <td><a href="<?php echo $file_path; ?>" class="btn btn-primary" download>Download</a></td>
                         <td><?php echo $row['thoigian']; ?></td>
                         <td><?php echo $row['tinhtrang']; ?></td>
                         <td> <a class="status pending"

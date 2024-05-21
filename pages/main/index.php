@@ -3,6 +3,9 @@
       if(isset($_SESSION['id_ql'])){
     ?>
          <h1 style="text-align: center;color: black;">Xin chào: <?php echo $_SESSION['tenql'] ?></h1>
+         <?php
+      if($_SESSION['quyenhan']==0){
+    ?>
          <!DOCTYPE html>
          <html>
 <head>
@@ -174,6 +177,9 @@
 
 </body>
 </html>
+<?php
+      }
+      ?>
 <?php
       } else { 
       ?>
