@@ -12,7 +12,7 @@ $file_time = time().'_'.$file;
 $id_sv = $_SESSION['id_sv'];
 
 if(isset($_POST['guimaudon'])){
-    $sql = "INSERT INTO dongui(id_sinhvien,tendon, file, noidung, ngaygui,tinhtrang) VALUES ('$id_sv','$tenmd','$file_time', '$noidung',  '$now','Chờ xét duyệt')";
+    $sql = "INSERT INTO dongui(id_sinhvien,tendon, file, noidung, ngaygui,ngayhoanthanh,tinhtrang,mucdo,donvicolienquan,goigam) VALUES ('$id_sv','$tenmd','$file_time', '$noidung',  '$now',0,'Chờ xét duyệt',0,0,0)";
     $result = mysqli_query($mysqli, $sql);
     move_uploaded_file($file_tmp, 'images/dongui/'.$file_time);
     echo '<script type="text/javascript">alert("Gửi đơn thành công");    window.location.href = "index.php?quanly=danhsachdongui"; </script>';

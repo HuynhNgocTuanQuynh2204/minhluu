@@ -11,7 +11,7 @@ $file_time = time().'_'.$file;
 $id_sv = $_SESSION['id_sv'];
 
 if(isset($_POST['guiform'])){
-    $sql = "INSERT INTO form(id_sinhvien,tenmaudon, file, thoigian,tinhtrang) VALUES ('$id_sv','$tenmd','$file_time','$now','Chờ xét duyệt')";
+    $sql = "INSERT INTO form(id_sinhvien,tenmaudon, file, thoigian,thoigianhoanthanh,tinhtrang,mucdo,donvi,goigam) VALUES ('$id_sv','$tenmd','$file_time','$now',0,'Chờ xét duyệt',0,0,0)";
     $result = mysqli_query($mysqli, $sql);
     move_uploaded_file($file_tmp, 'images/form/'.$file_time);
     echo '<script type="text/javascript">alert("Gửi form thành công");    window.location.href = "index.php?quanly=lichsuform"; </script>';

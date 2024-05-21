@@ -54,10 +54,22 @@
                         <td><?php echo $row['noidung']; ?></td>
                         <td><?php echo $row['ngaygui']; ?></td>
                         <td><?php echo $row['tinhtrang']; ?></td>
+                        <?php 
+                        if($row['tinhtrang'] != 'Đã xác nhận'){
+                            ?>
                         <td> <a class="status pending"
                                 href="index.php?quanly=capnhaptrangthaichosinhvien&iddg=<?php echo $row['id_dg']; ?>">Cập nhập </a></td>
+                                <?php
+                        }
+                        ?>
+                        <?php 
+                        if($row['tinhtrang'] == 'Chờ xét duyệt' ){
+                            ?>
                         <td> <a class="status cancelled"
-                                href="index.php?quanly=xacnhan&iddg=<?php echo $row['id_dg']; ?>">Xác Nhận </a></td>
+                                href="index.php?quanly=xacnhanmaudon&iddg=<?php echo $row['id_dg']; ?>">Xác Nhận </a></td>
+                        <?php
+                        }
+                            ?>
                     </tr>
                     <?php
                     }

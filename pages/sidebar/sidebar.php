@@ -20,6 +20,7 @@
              <div class="sidebar__list">
                  <?php
                    if(isset($_SESSION['id_ql'])){
+                    if($_SESSION['quyenhan']==0){
                   ?>
                  <a href="index.php" class="sidebar__link active-link">
                      <i class="ri-home-5-line"></i>
@@ -62,7 +63,126 @@
                  </a>
              </div>
              <?php
-                   }else if(isset($_SESSION['id_sv'])){
+                   } else if($_SESSION['quyenhan']==5){?>
+             <h3 class="sidebar__title">
+                 <span>Danh sách</span>
+             </h3>
+             <div class="sidebar__list">
+                 <a href="index.php?quanly=danhsachmaudonxinsvcntt" class="sidebar__link">
+                     <i class="ri-history-line"></i>
+                     <span class="sidebar__link-name">Danh sách đơn xin</span>
+                     <span class="sidebar__link-floating">Danh sách đơn xin</span>
+                 </a>
+                 <a href="index.php?quanly=danhsachformguisvcntt" class="sidebar__link">
+                     <i class="ri-history-line"></i>
+                     <span class="sidebar__link-name">Danh sách form gửi</span>
+                     <span class="sidebar__link-floating">Danh sách form gửi</span>
+                 </a>
+             </div>
+             <?php
+                } else if($_SESSION['quyenhan']==3){?>
+                    <h3 class="sidebar__title">
+                        <span>Danh sách</span>
+                    </h3>
+                    <div class="sidebar__list">
+                        <a href="index.php?quanly=danhsachmaudonxinsvqlsv" class="sidebar__link">
+                            <i class="ri-history-line"></i>
+                            <span class="sidebar__link-name">Danh sách đơn xin</span>
+                            <span class="sidebar__link-floating">Danh sách đơn xin</span>
+                        </a>
+                        <a href="index.php?quanly=danhsachformguisvqlsv" class="sidebar__link">
+                            <i class="ri-history-line"></i>
+                            <span class="sidebar__link-name">Danh sách form gửi</span>
+                            <span class="sidebar__link-floating">Danh sách form gửi</span>
+                        </a>
+                    </div>
+                    <?php
+                       }else if($_SESSION['quyenhan']==1){?>
+                        <h3 class="sidebar__title">
+                            <span>Danh sách</span>
+                        </h3>
+                        <div class="sidebar__list">
+                            <a href="index.php?quanly=danhsachmaudonxinsvdaotao" class="sidebar__link">
+                                <i class="ri-history-line"></i>
+                                <span class="sidebar__link-name">Danh sách đơn xin</span>
+                                <span class="sidebar__link-floating">Danh sách đơn xin</span>
+                            </a>
+                            <a href="index.php?quanly=danhsachformguisvdaotao" class="sidebar__link">
+                                <i class="ri-history-line"></i>
+                                <span class="sidebar__link-name">Danh sách form gửi</span>
+                                <span class="sidebar__link-floating">Danh sách form gửi</span>
+                            </a>
+                        </div>
+                        <?php
+                           }else if($_SESSION['quyenhan']==6){?>
+                            <h3 class="sidebar__title">
+                                <span>Danh sách</span>
+                            </h3>
+                            <div class="sidebar__list">
+                                <a href="index.php?quanly=danhsachmaudonxinsvkinhte" class="sidebar__link">
+                                    <i class="ri-history-line"></i>
+                                    <span class="sidebar__link-name">Danh sách đơn xin</span>
+                                    <span class="sidebar__link-floating">Danh sách đơn xin</span>
+                                </a>
+                                <a href="index.php?quanly=danhsachformguisvkinhte" class="sidebar__link">
+                                    <i class="ri-history-line"></i>
+                                    <span class="sidebar__link-name">Danh sách form gửi</span>
+                                    <span class="sidebar__link-floating">Danh sách form gửi</span>
+                                </a>
+                            </div>
+                            <?php
+                               }else if($_SESSION['quyenhan']==7){?>
+                                <h3 class="sidebar__title">
+                                    <span>Danh sách</span>
+                                </h3>
+                                <div class="sidebar__list">
+                                    <a href="index.php?quanly=danhsachmaudonxinsvsupham" class="sidebar__link">
+                                        <i class="ri-history-line"></i>
+                                        <span class="sidebar__link-name">Danh sách đơn xin</span>
+                                        <span class="sidebar__link-floating">Danh sách đơn xin</span>
+                                    </a>
+                                    <a href="index.php?quanly=danhsachformguisvsupham" class="sidebar__link">
+                                        <i class="ri-history-line"></i>
+                                        <span class="sidebar__link-name">Danh sách form gửi</span>
+                                        <span class="sidebar__link-floating">Danh sách form gửi</span>
+                                    </a>
+                                </div>
+                                <?php
+                                   }else if($_SESSION['quyenhan']==4){?>
+                                    <h3 class="sidebar__title">
+                                        <span>Danh sách</span>
+                                    </h3>
+                                    <div class="sidebar__list">
+                                        <a href="index.php?quanly=danhsachmaudonxinsvnongnghiep" class="sidebar__link">
+                                            <i class="ri-history-line"></i>
+                                            <span class="sidebar__link-name">Danh sách đơn xin</span>
+                                            <span class="sidebar__link-floating">Danh sách đơn xin</span>
+                                        </a>
+                                        <a href="index.php?quanly=danhsachformguisvnongnghiep" class="sidebar__link">
+                                            <i class="ri-history-line"></i>
+                                            <span class="sidebar__link-name">Danh sách form gửi</span>
+                                            <span class="sidebar__link-floating">Danh sách form gửi</span>
+                                        </a>
+                                    </div>
+                                    <?php
+                                       }else if($_SESSION['quyenhan']==8){?>
+                                        <h3 class="sidebar__title">
+                                            <span>Danh sách</span>
+                                        </h3>
+                                        <div class="sidebar__list">
+                                            <a href="index.php?quanly=danhsachmaudonxinsvketoan" class="sidebar__link">
+                                                <i class="ri-history-line"></i>
+                                                <span class="sidebar__link-name">Danh sách đơn xin</span>
+                                                <span class="sidebar__link-floating">Danh sách đơn xin</span>
+                                            </a>
+                                            <a href="index.php?quanly=danhsachformguisvketoan" class="sidebar__link">
+                                                <i class="ri-history-line"></i>
+                                                <span class="sidebar__link-name">Danh sách form gửi</span>
+                                                <span class="sidebar__link-floating">Danh sách form gửi</span>
+                                            </a>
+                                        </div>
+                                        <?php
+                                           }}else if(isset($_SESSION['id_sv'])){
                    ?>
              <div class="sidebar__list">
                  <a href="index.php?quanly=maudonxinsv" class="sidebar__link">
@@ -112,7 +232,7 @@
                      <span class="sidebar__link-name">Đổi mật khẩu</span>
                      <span class="sidebar__link-floating">Đổi mật khẩu</span>
                  </a>
-<?php
+                 <?php
                      }
                      ?>
                  <a href="index.php?dangxuat=1" class="sidebar__link">

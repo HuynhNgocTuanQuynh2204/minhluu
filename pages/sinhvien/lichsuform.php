@@ -26,6 +26,7 @@
                         <th> Tên mẫu đơn <span class="icon-arrow"></span></th>
                         <th>file <span class="icon-arrow"></span></th>
                         <th>Thời gian <span class="icon-arrow"></span></th>
+                        <th>Thời gian hoàn thành <span class="icon-arrow"></span></th>
                         <th>Tình trạng<span class="icon-arrow"></span></th>
                         <th>Sửa <span class="icon-arrow"></span></th>
                         <th>Xóa <span class="icon-arrow"></span></th>
@@ -45,6 +46,11 @@
                         <td><?php echo $row['tenmaudon']; ?></td>
                         <td> <?php echo $row['file']; ?></td>
                         <td><?php echo $row['thoigian']; ?></td>
+                        <td><?php if($row['thoigianhoanthanh']==0){
+                            echo 'Chưa hoàn thành';
+                        }else{
+                            echo $row['thoigianhoanthanh'];
+                        } ?></td>
                         <td><?php echo $row['tinhtrang']; ?></td>
                         <?php 
                         if($row['tinhtrang'] == 'Chờ xét duyệt' ){
@@ -59,8 +65,14 @@
                                 <?php
                                 if($row['tinhtrang'] != 'Đã xác nhận' ){
                             ?>
+                              <?php 
+                        if($row['goigam'] != 0 && $row['tinhtrang'] != 'Đã xác nhận'){
+                            ?>   
                         <td> <a class="status cancelled"
-                                href="index.php?quanly=xacnhansinhvienform&idform=<?php echo $row['id_form']; ?>">Xác nhận </a></td>
+                                href="index.php?quanly=goigamform&idform=<?php echo $row['id_form']; ?>">Xác nhận </a></td>
+                                <?php
+                        }
+                        ?>
                                 <?php
                         }
                         ?>

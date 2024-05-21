@@ -23,9 +23,11 @@
                     <tr>
                         <th> Id <span class="icon-arrow"></span></th>
                         <th> Tên sinh viên<span class="icon-arrow"></span></th>
+                        <th> Khoa<span class="icon-arrow"></span></th>
                         <th> Tên mẫu đơn <span class="icon-arrow"></span></th>
                         <th>file <span class="icon-arrow"></span></th>
                         <th>Thời gian <span class="icon-arrow"></span></th>
+                        <th>Hoàn thành <span class="icon-arrow"></span></th>
                         <th>Tình trạng<span class="icon-arrow"></span></th>
                         <th>Cập nhập trạng thái<span class="icon-arrow"></span></th>
                         <th>Xác nhận <span class="icon-arrow"></span></th>
@@ -40,9 +42,13 @@
                     <tr>
                         <td><?php echo $i; ?></td>
                         <td><?php echo $row['tensv']; ?></td>
+                        <td><?php echo $row['khoa']; ?></td>
                         <td><?php echo $row['tenmaudon']; ?></td>
                         <td> <?php echo $row['file']; ?></td>
                         <td><?php echo $row['thoigian']; ?></td>
+                        <td><?php if($row['thoigianhoanthanh']==0){
+                            echo 'Chưa hoàn thành';
+                        }else{ echo $row['thoigianhoanthanh']; }?></td>
                         <td><?php echo $row['tinhtrang']; ?></td>
                         <?php 
                         if($row['tinhtrang'] != 'Đã xác nhận'){
@@ -56,7 +62,7 @@
                         if($row['tinhtrang'] == 'Chờ xét duyệt'){
                             ?>
                         <td> <a class="status cancelled"
-                                href="index.php?quanly=xacnhanformsv&idform=<?php echo $row['id_form']; ?>">Xác nhận </a></td>
+                                href="index.php?quanly=xacnhanformgui&idform=<?php echo $row['id_form']; ?>">Xác nhận </a></td>
                    <?php
                         }
                         ?>

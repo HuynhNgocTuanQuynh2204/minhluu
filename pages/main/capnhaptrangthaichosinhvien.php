@@ -9,7 +9,7 @@ $sql = "SELECT * FROM dongui WHERE id_dg = '$_GET[iddg]'";
         <div class="row d-flex justify-content-right align-items-right">
             <div class="col-5">
                 <h1 class="mb-5">Cập nhập trạng thái đơn</h1>
-                <form action="index.php?quanly=capnhapmaudon&iddg=<?php echo $row['id_dg'] ?>" method="POST" enctype="multipart/form-data">
+                <form action="index.php?quanly=capnhapmaudonquanly&iddg=<?php echo $row['id_dg'] ?>" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label class="form-label">Nội dung cập nhập</label>
                         <textarea class="form-control" id="noidung" rows="5" style="resize: none;" name="noidung"><?php echo $row['tinhtrang'] ?></textarea>

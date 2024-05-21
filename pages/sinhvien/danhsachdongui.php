@@ -27,6 +27,7 @@
                         <th>file <span class="icon-arrow"></span></th>
                         <th>Lí do làm đơn <span class="icon-arrow"></span></th>
                         <th>Thời gian <span class="icon-arrow"></span></th>
+                        <th>Thời gian hoàn thành <span class="icon-arrow"></span></th>
                         <th>Tình trạng<span class="icon-arrow"></span></th>
                         <th>Sửa <span class="icon-arrow"></span></th>
                         <th>Xóa <span class="icon-arrow"></span></th>
@@ -40,13 +41,17 @@
                         $i++;
                         if($row['id_sinhvien'] == $_SESSION['id_sv']){
                     ?>
-                    <tr>
                         <td><?php echo $i; ?></td>
                         <td><?php echo $row['tensv']; ?></td>
                         <td><?php echo $row['tendon']; ?></td>
                         <td> <?php echo $row['file']; ?></td>
                         <td><?php echo $row['noidung']; ?></td>
                         <td><?php echo $row['ngaygui']; ?></td>
+                        <td><?php if($row['ngayhoanthanh']==0){
+                            echo 'Chưa hoàn thành';
+                        }else{
+                            echo $row['ngayhoanthanh'];
+                        } ?></td>
                         <td><?php echo $row['tinhtrang']; ?></td>
                         <?php 
                        if($row['tinhtrang'] == 'Chờ xét duyệt' ){
@@ -59,10 +64,10 @@
                         <td> <a class="status cancelled"
                                 href="index.php?quanly=guimaudon&iddg=<?php echo $row['id_dg']; ?>">Xóa </a></td>
                                 <?php 
-                        if($row['tinhtrang'] != 'Đã xác nhận' ){
+                        if($row['goigam'] != 0 && $row['tinhtrang'] != 'Đã xác nhận'){
                             ?>
                         <td> <a class="status cancelled"
-                                href="index.php?quanly=xacnhansinhviendonxin&iddg=<?php echo $row['id_dg']; ?>">Xác nhận </a></td>
+                                href="index.php?quanly=goigam&iddg=<?php echo $row['id_dg']; ?>">Xác nhận </a></td>
                                 <?php
                         }
                         ?>
