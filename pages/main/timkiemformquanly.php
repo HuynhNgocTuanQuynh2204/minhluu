@@ -29,9 +29,12 @@
                     <tr>
                         <th> Id <span class="icon-arrow"></span></th>
                         <th> Tên sinh viên<span class="icon-arrow"></span></th>
+                        <th> Khoa<span class="icon-arrow"></span></th>
+                        <th> Mức độ<span class="icon-arrow"></span></th>
                         <th> Tên mẫu đơn <span class="icon-arrow"></span></th>
                         <th>file <span class="icon-arrow"></span></th>
                         <th>Thời gian <span class="icon-arrow"></span></th>
+                        <th>Hoàn thành <span class="icon-arrow"></span></th>
                         <th>Tình trạng<span class="icon-arrow"></span></th>
                         <th>Cập nhập trạng thái<span class="icon-arrow"></span></th>
                         <th>Xác nhận <span class="icon-arrow"></span></th>
@@ -47,16 +50,40 @@
                     <tr>
                         <td><?php echo $i; ?></td>
                         <td><?php echo $row['tensv']; ?></td>
+                        <td><?php echo $row['khoa']; ?></td>
+                        <td><?php if($row['mucdo']==0){
+                                echo 'Chưa được admin quyết định';
+                            }else{
+                                echo $row['mucdo'];
+                            }?>
+                        </td>
                         <td><?php echo $row['tenmaudon']; ?></td>
                         <td><a href="<?php echo $file_path; ?>" class="btn btn-primary" download>Download</a></td>
                         <td><?php echo $row['thoigian']; ?></td>
+                        <td><?php if($row['thoigianhoanthanh']==0){
+                            echo 'Chưa hoàn thành';
+                        }else{ echo $row['thoigianhoanthanh']; }?></td>
                         <td><?php echo $row['tinhtrang']; ?></td>
+                        <?php 
+                        if($row['tinhtrang'] != 'Đã xác nhận'){
+                            ?>
                         <td> <a class="status pending"
-                                href="index.php?quanly=caonhapformsv&idform=<?php echo $row['id_form']; ?>">Cập nhập </a></td>
+                                href="index.php?quanly=caonhapformsv&idform=<?php echo $row['id_form']; ?>">Cập nhập
+                            </a></td>
+                        <?php
+                        }
+                        ?>
+                        <?php 
+                        if($row['tinhtrang'] == 'Chờ xét duyệt'){
+                            ?>
                         <td> <a class="status cancelled"
-                                href="index.php?quanly=xacnhanformsv&idform=<?php echo $row['id_form']; ?>">Xác nhận </a></td>
-                    </tr>
-                    <?php
+                                href="index.php?quanly=xacnhanformgui&idform=<?php echo $row['id_form']; ?>">Xác nhận
+                            </a></td>
+                        <?php
+                        }
+                        ?>
+                        </tr>
+                        <?php
                     }
                     ?>
                 </tbody>
