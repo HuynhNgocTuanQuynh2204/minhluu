@@ -178,9 +178,11 @@
 </body>
 </html>
 <?php
+      }else{?>
+       <img src="images/DHBACLIEU.jpg" alt="">
+       <?php
       }
       ?>
-       <img src="images/DHBACLIEU.jpg" alt="">
 <?php
       } else { 
       ?>
