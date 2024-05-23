@@ -24,9 +24,9 @@
                 <select id="inputState" class="form-select" name="phongkhoa">
                     <option selected value="Công tác chính trị - Quản Lý sinh viên">Công tác chính trị - Quản Lý sinh viên </option>
                     <option value="Phòng đào tạo">Phòng đào tạo </option>
-                    <option value="Công nghệ thông tin">Công nghệ thông tin</option>
-                    <option value="Kinh tế">Kinh tế</option>
-                    <option value="Sư phạm">Sư phạm</option>
+                    <option value="Khoa Công nghệ thông tin">Công nghệ thông tin</option>
+                    <option value="Khoa Kinh tế">Kinh tế</option>
+                    <option value="Khoa Sư phạm">Sư phạm</option>
                     <option value="Khoa nông nghiệp">Khoa nông nghiệp</option>
                     <option value="Phòng kế toán">Phòng kế toán</option>
                 </select>

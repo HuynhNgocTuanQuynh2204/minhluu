@@ -3,7 +3,7 @@
     $query_sua = mysqli_query($mysqli, $sql_sua);
     $row = mysqli_fetch_array($query_sua);
 ?>
-<main class="main container" id="main"></main>
+<main class="main container" id="main">
 <div class="main p-3">
     <div class="text-center">
         <h1 style="text-align: center;padding: 10px;">Lí do từ chối</h1>

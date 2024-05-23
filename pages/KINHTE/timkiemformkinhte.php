@@ -66,26 +66,14 @@
                             echo 'Chưa hoàn thành';
                         }else{ echo $row['thoigianhoanthanh']; }?></td>
                         <td><?php echo $row['tinhtrang']; ?></td>
-                        <?php 
-                        if($row['tinhtrang'] != 'Đã xác nhận'){
-                            ?>
-                        <td> <a class="status pending"
-                                href="index.php?quanly=caonhapformsvkinhte&idform=<?php echo $row['id_form']; ?>">Cập nhập </a></td>
-                                <?php
-                        }
-                        ?>
-                                <?php 
-                        if($row['tinhtrang'] == 'Đã tiếp nhận đơn và gửi về đơn vị có liên quan'){
-                            ?>
-                        <td> <a class="status cancelled"
-                                href="index.php?quanly=xacnhanformsvkinhte&idform=<?php echo $row['id_form']; ?>">Tiếp nhận đơn </a></td>
-                        <?php
-                        }else  if($row['tinhtrang'] != 'Đã hoàn thành đơn' && $row['tinhtrang'] != 'Đã xác nhận' ){?>
-                         <a class="status cancelled"
-                                href="index.php?quanly=xacnhanhoanthanhformkinhte&idform=<?php echo $row['id_form']; ?>">Xác nhận hoàn thành </a></td>
-                        <?php 
-                        }
-                            ?>
+                        <?php if ($row['tinhtrang'] != 'Đã xác nhận') { ?>
+                                    <td><a class="status pending" href="index.php?quanly=capnhaptrangthaiformkinhte&idform=<?php echo $row['id_form']; ?>">Cập nhật</a></td>
+                                <?php } ?>
+                                <?php if ($row['tinhtrang'] == 'Đã tiếp nhận đơn và gửi về đơn vị có liên quan') { ?>
+                                    <td><a class="status cancelled" href="index.php?quanly=tiepnhanformkinhte&idform=<?php echo $row['id_form']; ?>">Tiếp nhận đơn</a></td>
+                                <?php } elseif ($row['tinhtrang'] != 'Đã hoàn thành đơn' && $row['tinhtrang'] != 'Đã xác nhận') { ?>
+                                    <td><a class="status cancelled" href="index.php?quanly=xacnhanhoanthanhformkinhte&idform=<?php echo $row['id_form']; ?>">Xác nhận hoàn thành</a></td>
+                                <?php } ?>
                             </tr>
                     <?php
                     }}
