@@ -180,6 +180,7 @@
 <?php
       }
       ?>
+       <img src="images/DHBACLIEU.jpg" alt="">
 <?php
       } else { 
       ?>
