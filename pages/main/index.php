@@ -51,35 +51,6 @@
         chart1.draw(data1, options1);
       }
 
-      function drawChart2() {
-        var data2 = google.visualization.arrayToDataTable([
-          ['Tình trạng', 'Số lượng'],
-          <?php
-          // Truy vấn dữ liệu cho biểu đồ thứ hai
-          $sql2 = "SELECT tinhtrang, COUNT(*) as count FROM form GROUP BY tinhtrang";
-          $result2 = $mysqli->query($sql2);
-
-          if ($result2->num_rows > 0) {
-              while($row = $result2->fetch_assoc()) {
-                  if ($row['tinhtrang'] == 'Đã xác nhận') {
-                      echo "['Đã xác nhận', ".$row['count']."],";
-                  } else {
-                      echo "['Đang trong quá trình giải quyết', ".$row['count']."],";
-                  }
-              }
-          }
-          ?>
-        ]);
-
-        var options2 = {
-          title: 'Thống kê đơn xác nhận',
-          pieHole: 0.4,
-        };
-
-        var chart2 = new google.visualization.PieChart(document.getElementById('donutchart2'));
-        chart2.draw(data2, options2);
-      }
-
       function drawTable1() {
         var data3 = new google.visualization.DataTable();
         data3.addColumn('string', 'Tên đơn vị');
@@ -118,6 +89,35 @@
 
         var table = new google.visualization.Table(document.getElementById('table_div'));
         table.draw(data3, options3);
+      }
+
+      function drawChart2() {
+        var data2 = google.visualization.arrayToDataTable([
+          ['Tình trạng', 'Số lượng'],
+          <?php
+          // Truy vấn dữ liệu cho biểu đồ thứ hai
+          $sql2 = "SELECT tinhtrang, COUNT(*) as count FROM form GROUP BY tinhtrang";
+          $result2 = $mysqli->query($sql2);
+
+          if ($result2->num_rows > 0) {
+              while($row = $result2->fetch_assoc()) {
+                  if ($row['tinhtrang'] == 'Đã xác nhận') {
+                      echo "['Đã xác nhận', ".$row['count']."],";
+                  } else {
+                      echo "['Đang trong quá trình giải quyết', ".$row['count']."],";
+                  }
+              }
+          }
+          ?>
+        ]);
+
+        var options2 = {
+          title: 'Thống kê đơn xác nhận',
+          pieHole: 0.4,
+        };
+
+        var chart2 = new google.visualization.PieChart(document.getElementById('donutchart2'));
+        chart2.draw(data2, options2);
       }
 
       function drawTable2() {
@@ -166,11 +166,11 @@
     <h3 style="text-align: center;">Thống kê tất cả đơn xin phép đã và đang giải quyết</h3>
     <div id="donutchart1" style="width: 900px; height: 500px;"></div>
 
-    <h3 style="text-align: center;">Thống kê tất cả đơn xác nhận đã và đang giải quyết</h3>
-    <div id="donutchart2" style="width: 900px; height: 500px;"></div>
-
     <h3 style="text-align: center;">Thống kê tổng số đơn của từng đơn vị ở đơn gửi</h3>
     <div id="table_div"></div>
+
+    <h3 style="text-align: center;">Thống kê tất cả đơn xác nhận đã và đang giải quyết</h3>
+    <div id="donutchart2" style="width: 900px; height: 500px;"></div>
 
     <h3 style="text-align: center;">Thống kê tổng số đơn của từng đơn vị ở đơn xác nhận</h3>
     <div id="table_div2"></div>
@@ -184,6 +184,7 @@
       } else { 
       ?>
        <h1 style="text-align: center;color: black;">Xin chào: <?php echo $_SESSION['tensv'] ?></h1>
+       <img src="images/DHBACLIEU.jpg" alt="">
       <?php
       }
       ?>
